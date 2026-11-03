@@ -1,31 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    optimizeCss: true,
-    optimizePackageImports: ['@radix-ui/react-*', 'lucide-react']
+    cpus: 1,
+    webpackBuildWorker: false
   },
   images: {
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'image.tmdb.org',
-        port: '',
         pathname: '/t/p/**'
       },
       {
         protocol: 'https',
-        hostname: 'www.gravatar.com',
-        port: '',
-        pathname: '/avatar/**'
+        hostname: 'books.google.com',
+        pathname: '/books/content/**'
       }
     ]
-  },
-  webpack: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': require('path').resolve(__dirname, './')
-    }
-    return config
   }
 }
 
