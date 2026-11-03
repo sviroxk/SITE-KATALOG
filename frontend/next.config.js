@@ -1,31 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  basePath: '/SITE-KATALOG',
+  assetPrefix: '/SITE-KATALOG',
+  trailingSlash: true,
+  images: { unoptimized: true },
   experimental: {
-    optimizeCss: true,
-    optimizePackageImports: ['@radix-ui/react-*', 'lucide-react']
-  },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'image.tmdb.org',
-        port: '',
-        pathname: '/t/p/**'
-      },
-      {
-        protocol: 'https',
-        hostname: 'www.gravatar.com',
-        port: '',
-        pathname: '/avatar/**'
-      }
-    ]
-  },
-  webpack: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': require('path').resolve(__dirname, './')
-    }
-    return config
+    cpus: 1,
+    webpackBuildWorker: false
   }
 }
 

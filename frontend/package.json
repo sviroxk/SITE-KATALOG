@@ -1,28 +1,28 @@
 {
-  "name": "site-katalog-frontend",
+  "name": "frontend",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && cp ../public/.nojekyll out/.nojekyll",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "oxlint app src",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@supabase/ssr": "0.10.0",
+    "@supabase/supabase-js": "2.109.0",
+    "@tanstack/react-query": "5.62.8",
     "next": "16.4.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "next-auth": "4.24.15",
-    "axios": "1.20.0",
-    "lucide-react": "0.295.0",
-    "tailwind-merge": "2.2.0",
-    "zod": "4.6.6"
+    "postcss": "8.5.23",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "zustand": "5.0.2"
   },
   "devDependencies": {
-    "@types/node": "20.10.6",
-    "@types/react": "18.2.46",
-    "@types/react-dom": "18.2.18",
-    "eslint": "8.56.0",
-    "eslint-config-next": "14.0.0"
+    "@types/node": "22.10.2",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "typescript": "5.9.3"
   }
 }

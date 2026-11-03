@@ -1,27 +1,25 @@
-import { SessionProvider } from "next-auth/react"
-import { auth } from "@/lib/auth"
-import { MovieCatalog } from "@/components/movie-catalog"
-import { GameCatalog } from "@/components/game-catalog"
-import { BookCatalog } from "@/components/book-catalog"
-import { SearchBar } from "@/components/search-bar"
-import { Navbar } from "@/components/navbar"
+import Link from 'next/link'
 
-export default async function HomePage() {
-  const session = await auth()
+const catalogLinks = [
+  { href: '/movies', label: 'Фильмы и сериалы' },
+  { href: '/games', label: 'Игры' },
+  { href: '/books', label: 'Книги' },
+  { href: '/library', label: 'Моя библиотека' },
+  { href: '/collections', label: 'Коллекции' }
+]
 
+export default function HomePage() {
   return (
-    <SessionProvider session={session}>
-      <div className="min-h-screen bg-gray-900 text-white">
-        <Navbar />
-        <main className="container mx-auto px-4 py-8">
-          <SearchBar />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <MovieCatalog />
-            <GameCatalog />
-            <BookCatalog />
-          </div>
-        </main>
-      </div>
-    </SessionProvider>
+    <main>
+      <h1>SITE KATALOG</h1>
+      <p>Каталог фильмов, игр и книг с личной медиатекой и коллекциями.</p>
+      <nav aria-label="Разделы каталога">
+        <ul>
+          {catalogLinks.map(({ href, label }) => (
+            <li key={href}><Link href={href}>{label}</Link></li>
+          ))}
+        </ul>
+      </nav>
+    </main>
   )
 }

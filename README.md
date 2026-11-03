@@ -1,62 +1,47 @@
 # SITE KATALOG
 
-Сайт-каталог для фильмов, игр и книг с персональной медиатекой и коллекциями.
-
-## Функциональность
-
-- **Каталоги:**
-  - Фильмы и сериалы (TMDB API)
-  - Игры (Steam/IGDB API)
-  - Книги (Google Books API)
-
-- **Личная библиотека:**
-  - Хочу посмотреть / Смотрю / Просмотрено
-  - Любимое / Отложено / Заброшено
-
-- **Коллекции:**
-  - Пользовательские плейлисты
-  - Смешивание разных типов контента
-
-- **Поиск и фильтрация:**
-  - Полнотекстовый поиск по названию, жанрам, авторам
-  - Фильтры по году, платформе, жанру
-
-- **Профиль:**
-  - Настройки
-  - Статистика
-  - Загрузка аватара
-
-## Технологии
-
-- **Frontend:** Next.js 14, React, TypeScript, Tailwind CSS, Zustand, React Query
-- **Backend:** Node.js, Express, PostgreSQL, Sequelize ORM
-- **API:** TMDB, IGDB, Google Books
-- **Auth:** JWT, NextAuth
-- **CI/CD:** GitHub Actions
+Каталог фильмов, сериалов, игр и книг с личной медиатекой и коллекциями. Проект постепенно реализуется по фазам; на текущем этапе настроены структура репозитория, локальный PostgreSQL и базовые страницы/healthcheck.
 
 ## Быстрый старт
 
+Требуются Node.js и Docker с Compose.
+
 ```bash
-# Клонировать репозиторий
-git clone https://github.com/sviroxk/SITE-KATALOG.git
-
-cd SITE_KATALOG
-
-# Установить зависимости
+cp .env.example .env
+cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env.local
+docker compose up --pull always -d
 npm install
-
-# Переменная переменная окружения
-# Редактировать .env.local в frontend/
-# Завести TOML или .env в backend/
-
-# Запустить проект
 npm run dev
 ```
 
-## Развертывание на GitHub Pages
+Frontend: http://localhost:3000
 
-Проект автоматически развертывается на GitHub Pages через GitHub Actions при каждом пуше в ветку `main`.
+Backend healthcheck: http://localhost:4000/health
 
-## Участие в разработке
+PostgreSQL: `localhost:5432`
 
-[Вклад в GitHub](https://github.com/sviroxk/SITE-KATALOG)
+Локальные значения в `.env.example` предназначены только для разработки. Перед публикацией замените пароли/секреты и заполните нужные API-ключи в `backend/.env`. Не добавляйте `.env` файлы или реальные ключи в Git.
+
+Чтобы запустить необязательный pgAdmin, задайте его пароль в `.env` и выполните `docker compose --profile tools up -d`.
+
+## Скрипты
+
+- `npm run dev` — frontend и backend параллельно.
+- `npm run build` — production build frontend и проверка запуска backend.
+- `npm run lint` — ESLint для рабочих пакетов.
+- `npm run typecheck` — проверка TypeScript frontend и синтаксиса backend.
+- `npm test` — тесты пакетов.
+- `npm run db:migrate` и `npm run db:seed` — команды подготовлены для фазы схемы данных.
+
+## Структура
+
+```text
+frontend/      Next.js App Router
+backend/       Express API и Sequelize
+ docs/         требования и проектная документация
+.github/       GitHub Actions
+docker-compose.yml
+```
+
+Frontend публикуется на GitHub Pages как статический экспорт через GitHub Actions; Supabase используется как публичный backend с обязательными RLS policies. GitHub Pages не запускает Express API или PostgreSQL. Инструкция, Pages settings и Supabase variables описаны в [docs/DEPLOY.md](docs/DEPLOY.md).
