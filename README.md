@@ -1,6 +1,8 @@
 # SITE KATALOG
 
-Каталог фильмов, сериалов, игр и книг с личной медиатекой и коллекциями. Проект постепенно реализуется по фазам; на текущем этапе настроены структура репозитория, локальный PostgreSQL и базовые страницы/healthcheck.
+**Открыть сайт:** [sviroxk.github.io/SITE-KATALOG](https://sviroxk.github.io/SITE-KATALOG/) · [GitHub-репозиторий](https://github.com/sviroxk/SITE-KATALOG)
+
+Каталог фильмов, сериалов, игр и книг с личной медиатекой и коллекциями. Статический frontend публикуется на GitHub Pages; API и функции каталога подключаются поэтапно.
 
 ## Быстрый старт
 
@@ -28,18 +30,19 @@ PostgreSQL: `localhost:5432`
 ## Скрипты
 
 - `npm run dev` — frontend и backend параллельно.
-- `npm run build` — production build frontend и проверка запуска backend.
+- `npm run build` — production static export frontend в `frontend/out/`.
+- `npm run build:all` — проверка backend и production build frontend.
 - `npm run lint` — ESLint для рабочих пакетов.
 - `npm run typecheck` — проверка TypeScript frontend и синтаксиса backend.
 - `npm test` — тесты пакетов.
-- `npm run db:migrate` и `npm run db:seed` — команды подготовлены для фазы схемы данных.
+- `npm run db:migrate` и `npm run db:seed` — команды базы данных будут реализованы вместе со схемой данных.
 
 ## Структура
 
 ```text
 frontend/      Next.js App Router
 backend/       Express API и Sequelize
- docs/         требования и проектная документация
+docs/          требования и проектная документация
 .github/       GitHub Actions
 docker-compose.yml
 ```
