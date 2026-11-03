@@ -1,3 +1,5 @@
+import { EmptyCatalog } from '../../components/site/empty-catalog'
+
 export default function GamesPage() {
-  return <main><h1>Игры</h1><p>Раздел каталога будет подключён в фазе внешних API.</p></main>
+  return <EmptyCatalog kind="game" title="Игры" description="Раздел игровых миров. Интеграция каталога и реальные данные будут добавлены отдельно." backHref="/" backLabel="К главной" />
 }
