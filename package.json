@@ -10,7 +10,7 @@
     "dev": "concurrently -k -n backend,frontend -c blue,green \"npm run dev --workspace backend\" \"npm run dev --workspace frontend\"",
     "build": "npm run build --workspace frontend",
     "build:all": "npm run build --workspace backend && npm run build --workspace frontend",
-    "lint": "oxlint frontend/app frontend/src backend/src",
+    "lint": "oxlint frontend/app frontend/src frontend/components backend/src",
     "typecheck": "npm run typecheck --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "db:migrate": "npm run db:migrate --workspace backend",

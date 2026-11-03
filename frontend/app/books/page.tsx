@@ -1,3 +1,5 @@
+import { EmptyCatalog } from '../../components/site/empty-catalog'
+
 export default function BooksPage() {
-  return <main><h1>Книги</h1><p>Раздел каталога будет подключён в фазе внешних API.</p></main>
+  return <EmptyCatalog kind="book" title="Книги" description="Книжный каталог появится после подключения источника данных. Сейчас здесь нет вымышленных карточек и рейтингов." backHref="/" backLabel="К главной" />
 }

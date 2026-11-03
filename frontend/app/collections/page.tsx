@@ -1,3 +1,5 @@
+import { EmptyCatalog } from '../../components/site/empty-catalog'
+
 export default function CollectionsPage() {
-  return <main><h1>Коллекции</h1><p>Пользовательские коллекции будут реализованы в последующих фазах.</p></main>
+  return <EmptyCatalog kind="collection" title="Коллекции" description="Тематические подборки будут доступны, когда заработают вход и хранение пользовательских данных." backHref="/" backLabel="К главной" />
 }
