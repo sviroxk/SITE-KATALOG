@@ -5,26 +5,23 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
+    "dev": "node --watch src/index.js",
     "build": "node --check src/index.js && node --check src/app.js",
-    "lint": "eslint src/index.js src/app.js src/routes/index.js",
     "typecheck": "node --check src/index.js && node --check src/app.js",
-    "test": "jest --runInBand",
+    "test": "node --test test/*.test.js",
     "db:migrate": "node -r dotenv/config -e \"if (!process.env.DATABASE_URL) { console.error('DATABASE_URL is required; configure backend/.env first.'); process.exit(1); } console.log('No migrations are registered yet; the schema phase will add them.')\"",
     "db:seed": "node -r dotenv/config -e \"if (!process.env.DATABASE_URL) { console.error('DATABASE_URL is required; configure backend/.env first.'); process.exit(1); } console.log('No seed data is registered yet; the database phase will add it.')\""
   },
   "dependencies": {
     "cors": "2.8.5",
     "dotenv": "16.4.7",
-    "express": "4.21.2",
+    "express": "4.22.3",
     "helmet": "8.0.0",
     "pg": "8.13.1",
-    "sequelize": "6.37.5"
+    "sequelize": "6.37.8",
+    "uuid": "11.1.1"
   },
   "devDependencies": {
-    "eslint": "8.57.1",
-    "jest": "29.7.0",
-    "nodemon": "3.1.9",
-    "supertest": "7.0.0"
+    "supertest": "7.1.3"
   }
 }

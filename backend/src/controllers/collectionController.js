@@ -1,5 +1,4 @@
 const { Collection, CollectionItem, Movie, Game, Book } = require('../models')
-const { Op } = require('sequelize')
 
 class CollectionController {
   async createCollection(req, res) {
@@ -24,10 +23,10 @@ class CollectionController {
   async getCollections(req, res) {
     try {
       const { userId } = req.params
-      const { public } = req.query
+      const isPublic = req.query.public
 
       const where = { userId }
-      if (public === 'true') where.isPublic = true
+      if (isPublic === 'true') where.isPublic = true
 
       const collections = await Collection.findAll({ where, order: [['createdAt', 'DESC']] })
       res.json(collections)

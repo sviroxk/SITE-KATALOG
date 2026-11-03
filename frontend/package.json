@@ -6,14 +6,15 @@
     "dev": "next dev",
     "build": "next build && cp ../public/.nojekyll out/.nojekyll",
     "start": "next start",
-    "lint": "eslint app",
+    "lint": "oxlint app src",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@supabase/ssr": "0.6.1",
-    "@supabase/supabase-js": "2.49.1",
+    "@supabase/ssr": "0.10.0",
+    "@supabase/supabase-js": "2.109.0",
     "@tanstack/react-query": "5.62.8",
-    "next": "14.2.21",
+    "next": "16.4.4",
+    "postcss": "8.5.23",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "zustand": "5.0.2"
@@ -22,8 +23,6 @@
     "@types/node": "22.10.2",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
-    "eslint": "8.57.1",
-    "eslint-config-next": "14.2.21",
-    "typescript": "5.7.2"
+    "typescript": "5.9.3"
   }
 }
