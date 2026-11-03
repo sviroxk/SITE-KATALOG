@@ -44,4 +44,4 @@ backend/       Express API и Sequelize
 docker-compose.yml
 ```
 
-GitHub Pages не размещает Express API и PostgreSQL. Деплой полного приложения будет настроен отдельно после реализации API и схемы данных.
+Frontend публикуется на GitHub Pages как статический экспорт через GitHub Actions; Supabase используется как публичный backend с обязательными RLS policies. GitHub Pages не запускает Express API или PostgreSQL. Инструкция, Pages settings и Supabase variables описаны в [docs/DEPLOY.md](docs/DEPLOY.md).

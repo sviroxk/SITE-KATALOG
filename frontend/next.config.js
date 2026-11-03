@@ -1,22 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  basePath: '/SITE-KATALOG',
+  assetPrefix: '/SITE-KATALOG',
+  trailingSlash: true,
+  images: { unoptimized: true },
   experimental: {
     cpus: 1,
     webpackBuildWorker: false
-  },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'image.tmdb.org',
-        pathname: '/t/p/**'
-      },
-      {
-        protocol: 'https',
-        hostname: 'books.google.com',
-        pathname: '/books/content/**'
-      }
-    ]
   }
 }
 

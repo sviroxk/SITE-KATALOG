@@ -13,6 +13,7 @@ uploads/
 **/.next/
 dist/
 **/dist/
+frontend/out/
 coverage/
 *.tsbuildinfo
 
