@@ -4,8 +4,8 @@ import { SiteShell } from '../components/site/site-shell'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'SITE KATALOG — твоя медиа-вселенная',
-  description: 'Собирай фильмы, игры и книги в личную медиатеку. Открывай новое и создавай собственные коллекции.'
+  title: 'VEYRA — твоя медиа-вселенная',
+  description: 'VEYRA — личная медиа-вселенная для фильмов, игр и книг. Открывай новое и собирай собственные коллекции.'
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
