@@ -1,8 +1,10 @@
-# SITE KATALOG
+# VEYRA
 
-**Открыть сайт:** [sviroxk.github.io/SITE-KATALOG](https://sviroxk.github.io/SITE-KATALOG/) · [GitHub-репозиторий](https://github.com/sviroxk/SITE-KATALOG)
+Бренд продукта — VEYRA. GitHub-репозиторий и URL GitHub Pages сохранены без переименования.
 
-Каталог фильмов, сериалов, игр и книг с личной медиатекой и коллекциями. Статический frontend публикуется на GitHub Pages; API и функции каталога подключаются поэтапно.
+**Открыть VEYRA:** [sviroxk.github.io/SITE-KATALOG](https://sviroxk.github.io/SITE-KATALOG/) · [GitHub-репозиторий](https://github.com/sviroxk/SITE-KATALOG)
+
+VEYRA — личная медиа-вселенная фильмов, сериалов, игр и книг. Статический frontend публикуется на GitHub Pages; API и пользовательские функции подключаются поэтапно.
 
 ## Быстрый старт
 

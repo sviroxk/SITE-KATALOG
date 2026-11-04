@@ -1,6 +1,6 @@
-# Деплой SITE KATALOG на GitHub Pages
+# Деплой VEYRA на GitHub Pages
 
-Сайт публикуется как статический экспорт Next.js по адресу `https://<owner>.github.io/SITE-KATALOG/`. GitHub Pages размещает только frontend-файлы. Express/PostgreSQL на Pages не запускаются; frontend должен обращаться к публичному backend/API или Supabase.
+Пользовательское название сайта — VEYRA. GitHub-репозиторий остаётся `sviroxk/SITE-KATALOG`; сайт публикуется как статический экспорт Next.js по адресу `https://<owner>.github.io/SITE-KATALOG/`. GitHub Pages размещает только frontend-файлы. Express/PostgreSQL на Pages не запускаются; frontend должен обращаться к публичному backend/API или Supabase.
 
 ## Supabase client и Auth Redirect URLs
 

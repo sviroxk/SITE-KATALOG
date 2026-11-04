@@ -35,7 +35,7 @@ export default function HomePage() {
       <section className="cosmic-hero" aria-labelledby="hero-title">
         <div className="hero-grid-overlay" aria-hidden="true" />
         <div className="hero-copy">
-          <div className="eyebrow"><span className="eyebrow-pulse" /> ЛИЧНАЯ МЕДИАВСЕЛЕННАЯ</div>
+          <div className="eyebrow"><span className="eyebrow-pulse" /> VEYRA · ЛИЧНАЯ МЕДИАВСЕЛЕННАЯ</div>
           <h1 id="hero-title">Истории,<br /><span>которые остаются.</span></h1>
           <p className="hero-description">
             Фильмы, игры и книги — собранные в одном пространстве. Исследуй миры и создавай собственную коллекцию.
