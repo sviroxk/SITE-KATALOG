@@ -24,10 +24,11 @@
 | --- | --- | --- |
 | `NEXT_PUBLIC_SUPABASE_URL` | Variable | Project URL Supabase |
 | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Variable | Публичный publishable key (или anon key), никогда не `service_role` |
-| `NEXT_PUBLIC_TMDB_KEY` | Variable | Ключ TMDB; он будет доступен браузеру, если задан |
 | `NEXT_PUBLIC_IGDB_PROXY_URL` | Variable | URL публичного proxy/API для IGDB; секрет Twitch client secret здесь не задавать |
 
 Все `NEXT_PUBLIC_*` значения встраиваются в статические ресурсы и доступны посетителям сайта. Pull request CI builds use non-secret placeholder Supabase settings; actual project values are required only in the deployment workflow. Для Supabase задавайте только publishable/anon key и защищайте данные RLS-политиками. Не задавайте пароли, service-role/API секреты или иные закрытые credentials. Для отсутствующих необязательных интеграций оставьте variable незаданной.
+
+TMDB API key — только серверный secret. После отзыва раскрытого ключа создайте новый в TMDB и добавьте его в Supabase Dashboard → Edge Function Secrets под именем `TMDB_API_KEY` (или используйте `supabase secrets set TMDB_API_KEY=<новый-ключ>` после настройки CLI и привязки проекта). Не добавляйте TMDB key в GitHub Actions Variables, frontend `.env.local`, любые `NEXT_PUBLIC_*` переменные или Pages workflow. В текущем репозитории Edge Function пока не реализована, поэтому значение начнёт использоваться после её создания и деплоя.
 
 `frontend/src/utils/supabase/client.ts` создаёт browser helper через `createBrowserClient` из `@supabase/ssr`; SDK управляет auth-сессией на клиенте. Серверный cookie helper и middleware не используются: они требуют server runtime и несовместимы с GitHub Pages static export.
 
@@ -52,5 +53,5 @@ Static export использует `output: 'export'`, `basePath` и `assetPrefi
 - **404 на вложенной странице:** статический export использует trailing slash; проверьте URL со слешем и наличие сгенерированного маршрута в `out/`.
 - **Workflow не запускается:** убедитесь, что commit попал в `main`, либо запустите `workflow_dispatch`; проверьте вкладку Actions и разрешения репозитория Pages.
 - **Supabase отвечает 401/403:** проверьте публичный anon key, project URL и RLS policies. Не заменяйте anon key на `service_role`.
-- **TMDB/IGDB запросы не работают:** убедитесь, что браузерный API доступен из интернета и разрешает CORS. IGDB OAuth/client secret должен оставаться на серверном proxy.
+- **TMDB/IGDB запросы не работают:** проверьте публичный Edge Function/API endpoint, CORS и его server-side secrets (`TMDB_API_KEY`, Twitch client secret). Не передавайте provider keys как `NEXT_PUBLIC_*`.
 - **Нужно изменить схему БД:** проверьте миграционный diff и примените его отдельно через Supabase CLI; frontend deploy БД не меняет.
